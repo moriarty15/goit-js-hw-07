@@ -6,16 +6,16 @@ const destroyButEl = document.querySelector('[data-action="destroy"]');
 
 const divEl = document.querySelector("#boxes");
 
+let amountEl = 0; // в переменной будет хранится число из input (глобальная
+// потому что нужен доступ к переменной из других функций)
 
-let amountEl = 0;
-
-const createBoxes = (amount) => {
+const protoType = (amount) => {
     amountEl = amount.currentTarget.value;
-    console.log(amountEl);
-};
-inputEl.addEventListener('input', createBoxes);
+}; // функция для получения значения из input
 
-const protoType = () => {
+inputEl.addEventListener('input', protoType); //добавил слушателя событий
+
+const createBoxes = () => {
     const array = [];
     for (let i = 0; i < amountEl; i += 1) {
         let color = Math.round(Math.random() * 255 + 100);
@@ -23,20 +23,22 @@ const protoType = () => {
         array[i].style.width = `${i * 10 + 30}px`;
         array[i].style.height = `${i * 10 + 30}px`;
         array[i].style.backgroundColor = `#${color}`;
-    console.log(array[i], color);
     }
-    divEl.append(...array);
-    return array;
-}
+    return divEl.append(...array);
+}// функция для создания дивов в зависимости от введенного значения amount
+// через рандом передал цвет(по другому пока не придумал как), задаёт bgc и 
+// размеры, возвращает созданные дивы в html разметку
 
-renderButEl.addEventListener('click', protoType);
+renderButEl.addEventListener('click', createBoxes); 
+// добавил слушателя событий и функцию на кнопку "Создать"
 
-const destroyBoxes = () => { };
-destroyButEl.addEventListener('click', () => {
+const destroyBoxes = () => {
     const divCollection = divEl.querySelectorAll("div");
-    console.log(divEl);
-    console.log(...divCollection);
     for (const divc of divCollection) {
         divEl.removeChild(divc);
     }
-});
+};
+// функция по удалению всех созданных элементов(скорее всего можно лучше, надо подумать ещё)
+
+destroyButEl.addEventListener('click', destroyBoxes);
+// добавил слушателя событий и функцию на кнопку "Очистить"
