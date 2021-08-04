@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 15px;
+}
+img {
+  width: 350px;
+  height: 200px;
+  display: block;
+}
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  align-items: baseline;
+}
+li:not(:last-child) {
+  margin-right: 20px;
+  width: 350px;
+}
