@@ -16,8 +16,8 @@ ul {
   display: flex;
   padding: 0;
   -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
 }
 
 li:not(:last-child) {
