@@ -21,12 +21,10 @@ const createBoxes = () => {
         let colorRed = Math.round(Math.random() * 255);
         let colorGreen = Math.round(Math.random() * 255);
         let colorBlue = Math.round(Math.random() * 255);
-        console.log(colorRed,colorGreen,colorBlue)
         array.push(document.createElement('div'));
         array[i].style.width = `${i * 10 + 30}px`;
         array[i].style.height = `${i * 10 + 30}px`;
         array[i].style.backgroundColor = `rgba(${colorRed},${colorGreen},${colorBlue})`;
-        console.log(array[i].style.backgroundColor);
     }
     return divEl.append(...array);
 }// функция для создания дивов в зависимости от введенного значения amount
