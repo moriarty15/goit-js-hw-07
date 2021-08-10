@@ -12,9 +12,9 @@ let amountEl = 0; // в переменной будет хранится чис�
 const protoType = (amount) => {
     amountEl = amount.currentTarget.value;
 }; // функция для получения значения из input
-
+let firstBoxWidth = 30;
+let firstBoxHeight = 30;
 inputEl.addEventListener('input', protoType); //добавил слушателя событий
-
 const createBoxes = () => {
     const array = [];
     for (let i = 0; i < amountEl; i += 1) {
@@ -22,8 +22,10 @@ const createBoxes = () => {
         let colorGreen = Math.round(Math.random() * 255);
         let colorBlue = Math.round(Math.random() * 255);
         array.push(document.createElement('div'));
-        array[i].style.width = `${i * 10 + 30}px`;
-        array[i].style.height = `${i * 10 + 30}px`;
+        array[i].style.width = `${firstBoxWidth}px`;
+        array[i].style.height = `${firstBoxHeight}px`;
+        firstBoxWidth += 10;
+        firstBoxHeight += 10;
         array[i].style.backgroundColor = `rgba(${colorRed},${colorGreen},${colorBlue})`;
     }
     return divEl.append(...array);
@@ -39,6 +41,8 @@ const destroyBoxes = () => {
     for (const divc of divCollection) {
         divEl.removeChild(divc);
     }
+    firstBoxWidth = 30;
+    firstBoxHeight = 30;
 };
 // функция по удалению всех созданных элементов(скорее всего можно лучше, надо подумать ещё)
 

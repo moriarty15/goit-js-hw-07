@@ -13,15 +13,8 @@ const images = [
   },
 ];
 
-const creationList = () => {
-  const array = [];
-  for (let i = 0; i < images.length; i += 1) {
-    const itemEl = document.createElement('li');
-    const imgEl = itemEl.insertAdjacentHTML
-      ('afterbegin', `<img src = ${images[i].url} alt = ${images[i].alt}>`);
-     array.push(itemEl);
-  }
-  return array;
-};
-const pushGallery = document.querySelector('#gallery');
-pushGallery.append(...creationList());
+const listEl = document.querySelector('#gallery');
+const creationList = images.reduce((string, item) => string + `<li><img src = ${item.url}></li>`, '');
+listEl.innerHTML = creationList;
+const allImg = document.querySelectorAll('img');
+allImg.forEach((e,i) => allImg[i].alt = images[i].alt)
