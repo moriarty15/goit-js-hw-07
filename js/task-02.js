@@ -6,7 +6,7 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
-const itemList = ingredients.map((e, i, a) => {
+const itemList = ingredients.map((e) => {
   const t = document.createElement(`li`);
   t.textContent = e;
   return t;
