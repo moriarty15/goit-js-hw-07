@@ -15,6 +15,6 @@ const images = [
 
 const listEl = document.querySelector('#gallery');
 const creationList = images.reduce((string, item) => string + `<li><img src = ${item.url}></li>`, '');
-listEl.innerHTML = creationList;
+listEl.insertAdjacentHTML('afterbegin', creationList);
 const allImg = document.querySelectorAll('img');
 allImg.forEach((e,i) => allImg[i].alt = images[i].alt)
