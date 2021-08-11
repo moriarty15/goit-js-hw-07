@@ -6,10 +6,10 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
-const array = [];
-const itemList = ingredients.forEach((e,i) => {
-  array.push(document.createElement(`li`));
-  array[i].textContent = e;
+const itemList = ingredients.map((e, i, a) => {
+  const t = document.createElement(`li`);
+  t.textContent = e;
+  return t;
 });
 const listEl = document.querySelector('#ingredients');
-listEl.append(...array);
+listEl.append(...itemList);
